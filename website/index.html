@@ -1,0 +1,50 @@
+---
+layout: default
+title: Home
+---
+
+<div class="posts">
+  {% for post in paginator.posts %}
+  <article class="post">
+    <h1 class="post-title">
+      <a href="{{ site.baseurl }}{{ post.url }}">
+        {{ post.title }}
+      </a>
+    </h1>
+
+    <time datetime="{{ post.date | date_to_xmlschema }}" class="post-date">{{ post.date | date_to_string }}</time>
+
+    {% if post.layout == 'comic' %}
+
+      {% for com in post.comic %}
+      <img style="border:1px solid black;" src="/images/{{ com.image }}" alt="{{ com.alt }}" />
+      {% if com.note %}
+        {{ com.note }}
+      {% endif %}
+      <br />
+      {% endfor %}
+
+      {% if post.note %}
+        {{ post.note }}
+      {% endif %}
+
+    {% endif %}
+
+    {{ post.content }}
+
+  </article>
+  {% endfor %}
+</div>
+
+<div class="pagination">
+  {% if paginator.next_page %}
+    <a class="pagination-item older" href="{{ paginator.next_page_path | prepend: site.baseurl }}">Older</a>
+  {% else %}
+    <span class="pagination-item older">There are none Olderer</span>
+  {% endif %}
+  {% if paginator.previous_page %}
+    <a class="pagination-item newer" href="{{ paginator.previous_page_path | prepend: site.baseurl }}">Newer</a>
+  {% else %}
+    <span class="pagination-item newer">There are none Newerer</span>
+  {% endif %}
+</div>

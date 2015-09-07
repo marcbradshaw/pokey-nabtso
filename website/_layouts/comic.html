@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<article class="post">
+  <h1 class="post-title">{{ page.title }}</h1>
+  <time datetime="{{ page.date | date_to_xmlschema }}" class="post-date">{{ page.date | date_to_string }}</time>
+
+  {% for post in page.comic %}
+  <img style="border:1px solid black;" src="/images/{{ post.image }}" alt="{{ post.alt }}" />
+  {% if post.note %}
+    {{ post.note }}
+  {% endif %}
+  <br />
+
+  {% if page.note %}
+    {{ page.note }}
+    <br />
+  {% endif %}
+
+  {% endfor %}
+
+  {{ content }}
+
+</article>
