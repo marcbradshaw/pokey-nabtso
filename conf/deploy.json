@@ -1,6 +1,6 @@
 [
     {
-        "https://gitlab.com/marcbradshaw/pokey-nabtso refs/heads/master" : {
+        "https://github.com/marcbradshaw/pokey-nabtso refs/heads/master" : {
             "cwd" : "/home/admpokey/git/pokey-nabtso",
             "user" : "admpokey",
             "cmd" : "deploy_manager_deploy"
